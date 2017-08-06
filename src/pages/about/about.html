@@ -7,5 +7,41 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-card *ngFor="let filmes of lista_filmes">
 
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/images/marty-avatar.png">
+      </ion-avatar>
+      <h2>{{ filmes.original_title }}</h2>
+      <p>{{ filmes.release_date }}</p>
+    </ion-item>
+
+     <img [src]="'https://image.tmdb.org/t/p/w300/'+filmes.backdrop_path"> 
+
+    <ion-card-content>
+      <p>{{ filmes.overview }}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>{{ lista_filmes.quant_like }} Likes</div>
+      </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>{{ lista_filmes.quant_comments }} Comments</div>
+      </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          {{ lista_filmes.time_comment }}
+        </ion-note>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
 </ion-content>
